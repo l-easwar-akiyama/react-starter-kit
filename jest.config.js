@@ -1,5 +1,5 @@
 module.exports = {
-  coverageDirectory: 'coverage',
+  coverageDirectory: '<rootDir>/reports/coverage',
   coverageReporters: ['html'],
   roots: ['<rootDir>/app/'],
   setupFilesAfterEnv: [

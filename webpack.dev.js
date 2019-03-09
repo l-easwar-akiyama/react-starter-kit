@@ -7,14 +7,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   plugins: [new webpack.HotModuleReplacementPlugin()],
-  resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
-  },
+  resolve: { alias: { 'react-dom': '@hot-loader/react-dom' } },
   devtool: 'eval-source-map',
-  devServer: {
-    contentBase: 'dist',
-    hot: true,
-  },
+  devServer: { hot: true, open: true },
 });

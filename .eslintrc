@@ -26,6 +26,9 @@
         "singleQuote": true,
         "trailingComma": "es5"
       }
-    ]
+    ],
+    "react/forbid-prop-types": "off",
+    "consistent-return": "off",
+    "func-names": "off"
   }
 }

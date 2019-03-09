@@ -1,11 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+/* eslint-enable import/no-extraneous-dependencies */
 
 module.exports = {
   entry: './app/index.jsx',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/app/index.html`,
-    }),
+    new HtmlWebpackPlugin({ template: `${__dirname}/app/index.html`, inject: 'head' }),
+    new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer' }),
   ],
   output: {
     path: `${__dirname}/dist`,
@@ -21,7 +23,5 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+  resolve: { extensions: ['.js', '.jsx'] },
 };
