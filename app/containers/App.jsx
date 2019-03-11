@@ -1,13 +1,17 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import { Main, Header, Paragraph } from '../components';
+import { GlobalStyle, Main, Text, Header } from 'components';
 
 function Welcome() {
   return (
-    <Main>
-      <Header>Welcome to Sama&#39;s React component library</Header>
-      <Paragraph>This is a test paragraph to showcase the typography components</Paragraph>
-    </Main>
+    <React.Fragment>
+      <GlobalStyle />
+      <Header title="App" />
+      <Main>
+        <h2>Welcome to Sama&#39;s React component library</h2>
+        <Text as="p">This is a test paragraph to showcase the typography components</Text>
+      </Main>
+    </React.Fragment>
   );
 }
 

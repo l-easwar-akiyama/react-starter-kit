@@ -23,5 +23,12 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ['.js', '.jsx'] },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      app: `${__dirname}/app`,
+      components: `${__dirname}/app/components`,
+      containers: `${__dirname}/app/containers`,
+    },
+  },
 };

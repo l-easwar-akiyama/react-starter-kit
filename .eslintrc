@@ -28,7 +28,15 @@
       }
     ],
     "react/forbid-prop-types": "off",
+    "react/prop-types": [0, { "ignore": "children" }],
     "consistent-return": "off",
     "func-names": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.common.js"
+      }
+    }
   }
 }

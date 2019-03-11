@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "baseUrl": "./app",
+    "paths": {
+      "components": ["components/index.js"],
+      "containers": ["containers/index.js"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "reports"]
+}
