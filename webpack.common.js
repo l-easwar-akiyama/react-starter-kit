@@ -7,7 +7,7 @@ module.exports = {
   entry: './app/index.jsx',
   plugins: [
     new HtmlWebpackPlugin({ template: `${__dirname}/app/index.html`, inject: 'head' }),
-    new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer' }),
+    new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer', module: ['bundle'] }),
   ],
   output: {
     path: `${__dirname}/dist`,

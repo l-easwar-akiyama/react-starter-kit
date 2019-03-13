@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { pick, mapKeys, kebabCase } from 'lodash-es';
+import { pick, kebabCase } from 'lodash-es';
 import flexTypes from './types';
 
 const Flex = styled.div.attrs(props => ({
-  ...mapKeys(pick(props, flexTypes.dynamicProps), key => kebabCase(key)),
-  ...props.style,
+  style: {
+    ...pick(props, flexTypes.dynamicProps),
+    ...props.style,
+  },
 }))`
   display: flex;
   ${props => {

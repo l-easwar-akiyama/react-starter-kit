@@ -1,12 +1,6 @@
 module.exports = {
   presets: [
-    [
-      '@babel/preset-env',
-      {
-        modules: false,
-        targets: ['last 2 Chrome versions', 'last 2 ff versions'],
-      },
-    ],
+    ['@babel/preset-env', { modules: false, targets: { esmodules: true } }],
     '@babel/preset-react',
   ],
   env: {

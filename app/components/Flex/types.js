@@ -1,5 +1,5 @@
 export default {
-  /* These will be applied as inline styles */
+  /* These will be applied as inline css */
   staticProps: [
     'flexDirection',
     'flexFlow',
@@ -14,7 +14,7 @@ export default {
     'placeItems',
   ],
 
-  /* These will be applied as dynamically embedded as inline css */
+  /* These will be applied as dynamically embedded as inline styles */
   dynamicProps: ['flex', 'flexBasis', 'flexGrow', 'flexShrink', 'order'],
 
   /**

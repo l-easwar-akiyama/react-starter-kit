@@ -97,6 +97,17 @@ const textBase = css`
 export default createGlobalStyle`
   ${miniReset}
 
+  html,
+  body,
+  #root {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  html {
+    height: 100%;
+  }
+
   body {
     background-color: #fafafa;
     font-family: Roboto, sans-serif;
@@ -113,6 +124,7 @@ export default createGlobalStyle`
   }
 
   h2 {
+    ${textBase}
     font-size: 3.75rem;
     font-weight: 300;
     line-height: 1;

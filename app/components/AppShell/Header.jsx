@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Link } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'components/Typography';
+import Flex from 'components/Flex';
 
 const Header = styled(Flex)`
   position: fixed;
@@ -12,8 +13,10 @@ const Header = styled(Flex)`
   color: white;
   top: 0;
   right: 0;
-  left: 250px;
+  left: 240px;
   background-color: #2196f3;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
   z-index: 1000;
 `;
 
@@ -28,6 +31,10 @@ const Title = styled.h6`
   color: inherit;
 `;
 
+const Social = styled.div`
+  margin-left: auto;
+`;
+
 const FontLink = styled(Link)`
   color: inherit;
   background-color: transparent;
@@ -37,21 +44,23 @@ const FontLink = styled(Link)`
 
 export default function({ title, onBurgerMenuClick, ...props }) {
   return (
-    <Header as="header" justifyContent="end" alignItems="center" {...props}>
-      <BurgerMenu icon={faBars} color="black" onClick={onBurgerMenuClick} />
-      <Title>{title}</Title>
-      <div style={{ marginLeft: 'auto' }}>
-        <FontLink
-          href="https://github.com/l-easwar-akiyama/react-starter-kit"
-          target="_blank"
-          referrerpolicy="no-referrer"
-        >
-          <FontAwesomeIcon icon={faGithub} size="lg" />
-        </FontLink>
-        <FontLink href="https://medium.com/@easwarmec" target="_blank" referrerpolicy="no-referrer">
-          <FontAwesomeIcon icon={faMedium} size="lg" />
-        </FontLink>
-      </div>
+    <Header as="header" {...props}>
+      <Flex flexGrow={1} justifyContent="end" alignItems="center">
+        <BurgerMenu icon={faBars} color="black" onClick={onBurgerMenuClick} />
+        <Title>{title}</Title>
+        <Social>
+          <FontLink
+            href="https://github.com/l-easwar-akiyama/react-starter-kit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faGithub} size="lg" />
+          </FontLink>
+          <FontLink href="https://medium.com/@easwarmec" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faMedium} size="lg" />
+          </FontLink>
+        </Social>
+      </Flex>
     </Header>
   );
 }
