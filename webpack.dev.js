@@ -7,8 +7,9 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
+  output: { filename: 'bundle.js' },
   plugins: [new webpack.HotModuleReplacementPlugin(), new DashboardPlugin()],
   resolve: { alias: { 'react-dom': '@hot-loader/react-dom' } },
   devtool: 'eval-source-map',
-  devServer: { hot: true, overlay: true, open: true },
+  devServer: { hot: true, open: true, overlay: true },
 });

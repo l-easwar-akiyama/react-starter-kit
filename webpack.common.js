@@ -9,11 +9,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: `${__dirname}/app/index.html`, inject: 'head' }),
     new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer', module: ['bundle'] }),
   ],
-  output: {
-    path: `${__dirname}/dist`,
-    publicPath: '/',
-    filename: 'bundle.js',
-  },
+  output: { path: `${__dirname}/dist` },
   module: {
     rules: [
       {
