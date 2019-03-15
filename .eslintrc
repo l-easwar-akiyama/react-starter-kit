@@ -28,6 +28,8 @@
       }
     ],
     "react/forbid-prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "off",
     "react/prop-types": [0, { "ignore": "children" }],
     "consistent-return": "off",
     "func-names": "off"

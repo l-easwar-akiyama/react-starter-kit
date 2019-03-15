@@ -10,9 +10,9 @@ const List = styled.ol`
 export default function NavBar({ data, linkComponent }) {
   return (
     <List>
-      {data.map(({ children, ...rest }) => {
+      {data.map(({ children, ...rest }, index) => {
         return (
-          <NavItem {...rest}>
+          <NavItem key={index} {...rest}>
             {children && children.length ? (
               <NavBar data={children} linkComponent={linkComponent} />
             ) : null}

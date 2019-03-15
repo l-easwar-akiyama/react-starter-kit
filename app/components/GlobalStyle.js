@@ -94,9 +94,7 @@ const textBase = css`
   margin-bottom: 0.35em;
 `;
 
-export default createGlobalStyle`
-  ${miniReset}
-
+const override = css`
   html,
   body,
   #root {
@@ -163,3 +161,7 @@ export default createGlobalStyle`
     letter-spacing: 0.0075em;
   }
 `;
+
+/* stylelint-disable */
+export default createGlobalStyle`${miniReset} ${override}`;
+/* stylelint-enable */
