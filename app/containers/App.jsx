@@ -21,7 +21,7 @@ function Welcome() {
     <>
       <GlobalStyle />
       <AppShell pageName="Home" appName="React UI Toolkit" appVersion="0.0.0" navData={nav}>
-        <h3>Welcome to Sama&#39;s React component library</h3>
+        <h3>Welcome to React component library</h3>
         <Text as="p">This is a test paragraph to showcase the typography components</Text>
       </AppShell>
     </>
