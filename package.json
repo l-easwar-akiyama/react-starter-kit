@@ -2,7 +2,7 @@
   "name": "react-starter-kit",
   "version": "1.0.0",
   "description": "React Starter kit for React 16.8.4, Webpack 4, Babel 7, Styled Components 4",
-  "main": "src/index.js",
+  "main": "app/index.jsx",
   "repository": "https://github.com/l-easwar-akiyama/react-starter-kit.git",
   "author": "Sama <uchihaeaswar@gmail.com>",
   "license": "MIT",

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const ListItem = styled.li`
   padding: 4px 0;
@@ -8,12 +9,10 @@ const ListItem = styled.li`
 export default function NavItem({ title, url, linkComponent: Link, children }) {
   return (
     <ListItem>
-      <Link href={url} target="_blank" rel="noopener noreferrer">
-        {title}
-      </Link>
+      <Link to={url}>{title}</Link>
       {children}
     </ListItem>
   );
 }
 
-NavItem.defaultProps = { linkComponent: 'a' };
+NavItem.defaultProps = { linkComponent: NavLink };

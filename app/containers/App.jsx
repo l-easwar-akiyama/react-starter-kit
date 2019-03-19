@@ -1,10 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import { GlobalStyle, Text, AppShell } from 'components';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { GlobalStyle, AppShell } from 'components';
+import loadable from '@loadable/component';
 
 const nav = [
-  { title: 'Greeting1', url: 'https://www.google.com' },
-  { title: 'Greeting2', url: 'https://www.google.com' },
+  { title: 'Intro', url: '/' },
+  { title: 'Dead End', url: '/dead' },
   {
     title: 'Greeting3',
     url: 'https://www.google.com',
@@ -16,14 +18,21 @@ const nav = [
   },
 ];
 
+const IntroAsync = loadable(() => import('./Intro'));
+const NoMatchAsync = loadable(() => import('./NoMatch'));
+
 function Welcome() {
   return (
     <>
       <GlobalStyle />
-      <AppShell pageName="Home" appName="React UI Toolkit" appVersion="0.0.0" navData={nav}>
-        <h3>Welcome to React component library</h3>
-        <Text as="p">This is a test paragraph to showcase the typography components</Text>
-      </AppShell>
+      <BrowserRouter>
+        <AppShell pageName="Home" appName="React UI Toolkit" appVersion="0.0.0" navData={nav}>
+          <Switch>
+            <Route exact path="/" component={IntroAsync} />
+            <Route component={NoMatchAsync} />
+          </Switch>
+        </AppShell>
+      </BrowserRouter>
     </>
   );
 }
