@@ -11,5 +11,5 @@ module.exports = {
       plugins: [['babel-plugin-styled-components', { ssr: false, displayName: false, pure: true }]],
     },
   },
-  plugins: ['@babel/plugin-proposal-class-properties', '@babel/plugin-syntax-dynamic-import'],
+  plugins: ['@babel/plugin-syntax-dynamic-import'],
 };

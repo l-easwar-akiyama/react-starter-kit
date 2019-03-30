@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 
@@ -19,26 +19,19 @@ const StyledOverlay = styled.div`
   transition: opacity 0.5s;
 `;
 
-export default class extends React.Component {
-  state = { showOverlay: true };
+export default function({ show, ...rest }) {
+  const [showOverlay, setShowOverlay] = useState(true);
+  const handleTransitionEnd = useCallback(() => {
+    setShowOverlay(show);
+  }, [show]);
 
-  handleOverlayClick = () => {
-    if (this.props.onClick) this.props.onClick();
-  };
-
-  handleTransitionEnd = () => {
-    this.setState({ showOverlay: this.props.show });
-  };
-
-  render() {
-    return ReactDOM.createPortal(
-      <StyledOverlay
-        onClick={this.handleOverlayClick}
-        hide={!this.props.show}
-        showOverlay={this.props.show || this.state.showOverlay}
-        onTransitionEnd={this.handleTransitionEnd}
-      />,
-      document.body
-    );
-  }
+  return ReactDOM.createPortal(
+    <StyledOverlay
+      hide={!show}
+      showOverlay={show || showOverlay}
+      onTransitionEnd={handleTransitionEnd}
+      {...rest}
+    />,
+    document.body
+  );
 }

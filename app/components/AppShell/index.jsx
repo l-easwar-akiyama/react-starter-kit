@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
@@ -76,64 +76,54 @@ const Main = styled(Flex)`
   }
 `;
 
-export default class extends React.Component {
-  constructor() {
-    super();
-    this.state = { showOnToggle: false };
+export default function({ pageName, appName, appVersion, navData, linkComponent, children }) {
+  const [showOnToggle, setShowOnToggle] = useState(false);
+  useEffect(() => {
     const mediaQueryList = window.matchMedia('(min-width: 900px)');
-    mediaQueryList.addListener(this.handleMediaChange);
-  }
-
-  handleBurgerMenuClick = () => {
-    this.setState(function({ showOnToggle }) {
-      return { showOnToggle: !showOnToggle };
+    mediaQueryList.addListener(evt => {
+      if (evt.matches) {
+        setShowOnToggle(false);
+      }
     });
-  };
+  }, []);
+  const handleBurgerMenuClick = useCallback(() => {
+    setShowOnToggle(prevShowOnToggle => !prevShowOnToggle);
+  }, []);
 
-  handleMediaChange = evt => {
-    if (evt.matches) {
-      this.setState({ showOnToggle: false });
-    }
-  };
-
-  render() {
-    const { pageName, appName, appVersion, navData, linkComponent, children } = this.props;
-    const { showOnToggle } = this.state;
-    return (
-      <>
-        <HeaderWrapper as="header">
-          <Header title={pageName} onBurgerMenuClick={this.handleBurgerMenuClick}>
-            <Social>
-              <FontLink
-                href="https://github.com/l-easwar-akiyama/react-starter-kit"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} size="lg" />
-              </FontLink>
-              <FontLink
-                href="https://medium.com/@easwarmec"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faMedium} size="lg" />
-              </FontLink>
-            </Social>
-          </Header>
-        </HeaderWrapper>
-        <Nav as="nav" flexDirection="column" flexGrow={1} showOnToggle={showOnToggle}>
-          <SideBar
-            title={appName}
-            version={appVersion}
-            data={navData}
-            linkComponent={linkComponent}
-          />
-          <Overlay show={showOnToggle} onClick={this.handleBurgerMenuClick} />
-        </Nav>
-        <Main as="main" flexDirection="column" flex={1}>
-          {children}
-        </Main>
-      </>
-    );
-  }
+  return (
+    <>
+      <HeaderWrapper as="header">
+        <Header title={pageName} onBurgerMenuClick={handleBurgerMenuClick}>
+          <Social>
+            <FontLink
+              href="https://github.com/l-easwar-akiyama/react-starter-kit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} size="lg" />
+            </FontLink>
+            <FontLink
+              href="https://medium.com/@easwarmec"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faMedium} size="lg" />
+            </FontLink>
+          </Social>
+        </Header>
+      </HeaderWrapper>
+      <Nav as="nav" flexDirection="column" flexGrow={1} showOnToggle={showOnToggle}>
+        <SideBar
+          title={appName}
+          version={appVersion}
+          data={navData}
+          linkComponent={linkComponent}
+        />
+        <Overlay show={showOnToggle} onClick={handleBurgerMenuClick} />
+      </Nav>
+      <Main as="main" flexDirection="column" flex={1}>
+        {children}
+      </Main>
+    </>
+  );
 }

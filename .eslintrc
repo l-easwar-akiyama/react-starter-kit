@@ -1,21 +1,12 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier", "react", "jsx-a11y"],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
+  "plugins": ["prettier", "react", "react-hooks", "jsx-a11y"],
+  "env": { "browser": true },
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 2018,
     "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true,
-      "impliedStrict": true,
-      "classes": true
-    }
+    "ecmaFeatures": { "jsx": true, "impliedStrict": true }
   },
   "rules": {
     "prettier/prettier": [
@@ -32,13 +23,11 @@
     "react/destructuring-assignment": "off",
     "react/prop-types": [0, { "ignore": "children" }],
     "consistent-return": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.common.js"
-      }
-    }
+    "import/resolver": { "webpack": { "config": "webpack.common.js" } }
   }
 }

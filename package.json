@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
@@ -42,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "husky": "^1.3.1",
     "jest": "^24.5.0",
@@ -72,7 +72,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "stylelint './app/**/*.js'",
+      "stylelint './app/**/*.+(js|jsx)'",
       "eslint 'app/**/*.+(js|jsx)' --fix",
       "git add"
     ]
@@ -82,7 +82,7 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "analyse": "cross-env NODE_ENV=production webpack --config webpack.prod.js --json > stats.json",
     "lint:js": "eslint 'app/**/*.+(js|jsx)' --fix",
-    "lint:css": "stylelint './app/**/*.js'",
+    "lint:css": "stylelint './app/**/*.+(js|jsx)'",
     "test": "jest",
     "test:report": "jest --coverage && open reports/coverage/index.html",
     "test:watch": "jest --watch"
