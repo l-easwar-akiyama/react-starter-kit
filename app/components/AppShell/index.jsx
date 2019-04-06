@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
 import Flex from 'components/Flex';
 import { Link } from 'components/Typography';
-import Header from './Header';
-import SideBar from './SideBar';
-import Overlay from '../Overlay';
+import Header from 'components/AppShell/Header';
+import SideBar from 'components/AppShell/SideBar';
+import Overlay from 'components/Overlay';
 
 const Social = styled.div`
   margin-left: auto;
@@ -65,15 +65,19 @@ const Nav = styled(Flex)`
   }
 `;
 
-const Main = styled(Flex)`
-  margin: 64px 0 0 240px;
-  padding: 30px 40px;
-  transition: transform 0.5s;
-  will-change: transform;
+const NavMock = styled.div`
+  width: 240px;
+  transition: width 0.5s;
+  will-change: width;
 
   @media (max-width: 900px) {
-    transform: translateX(-240px);
+    width: 0;
   }
+`;
+
+const Main = styled(Flex)`
+  margin-top: 64px;
+  padding: 30px 40px;
 `;
 
 export default function({ pageName, appName, appVersion, navData, linkComponent, children }) {
@@ -121,6 +125,7 @@ export default function({ pageName, appName, appVersion, navData, linkComponent,
         />
         <Overlay show={showOnToggle} onClick={handleBurgerMenuClick} />
       </Nav>
+      <NavMock />
       <Main as="main" flexDirection="column" flex={1}>
         {children}
       </Main>
