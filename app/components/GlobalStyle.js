@@ -113,6 +113,25 @@ const override = css`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  input {
+    outline: 0;
+    border: 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
   h1 {
     ${textBase}
     font-size: 6rem;
