@@ -11,5 +11,5 @@ module.exports = merge(common, {
   plugins: [new webpack.HotModuleReplacementPlugin(), new DashboardPlugin()],
   resolve: { alias: { 'react-dom': '@hot-loader/react-dom' } },
   devtool: 'eval-source-map',
-  devServer: { hot: true, open: true, overlay: true },
+  devServer: { hot: true, open: true, overlay: true, historyApiFallback: true },
 });
