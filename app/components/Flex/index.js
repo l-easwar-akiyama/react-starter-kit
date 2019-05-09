@@ -26,7 +26,7 @@ Flex.propTypes = {
   flexShrink: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   justifyContent: PropTypes.oneOf(flexTypes.justifyContent),
-  justifyItems: PropTypes.oneOf(flexTypes.justifyContent),
+  justifyItems: PropTypes.oneOf(flexTypes.justifyItems),
   justifySelf: PropTypes.oneOf(flexTypes.justifySelf),
   alignContent: PropTypes.oneOf(flexTypes.alignContent),
   alignItems: PropTypes.oneOf(flexTypes.alignItems),

@@ -57,20 +57,14 @@ function reducer(state, action) {
     case 'update':
       return state.map((file, index) => {
         if (index === action.payload.index) {
-          return {
-            ...file,
-            code: action.payload.code,
-          };
+          return { ...file, code: action.payload.code };
         }
         return file;
       });
     case 'rename':
       return state.map((file, index) => {
         if (index === action.payload.index) {
-          return {
-            ...file,
-            name: action.payload.name,
-          };
+          return { ...file, name: action.payload.name };
         }
         return file;
       });

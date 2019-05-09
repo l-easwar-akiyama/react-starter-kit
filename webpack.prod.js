@@ -10,9 +10,7 @@ module.exports = merge(common, {
   mode: 'production',
   optimization: {
     splitChunks: {
-      cacheGroups: {
-        commons: { test: /[\\/]node_modules[\\/]/, name: 'vendor', chunks: 'all' },
-      },
+      cacheGroups: { commons: { test: /[\\/]node_modules[\\/]/, name: 'vendor', chunks: 'all' } },
     },
     runtimeChunk: { name: 'manifest' },
   },

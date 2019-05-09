@@ -21,7 +21,7 @@ const nav = [
 
 const IntroAsync = loadable(() => import('./Intro'));
 const NoMatchAsync = loadable(() => import('./NoMatch'));
-const SandboxAsync = loadable(() => import('./Sandbox'));
+// const SandboxAsync = loadable(() => import('./Sandbox'));
 
 function Welcome() {
   return (
@@ -31,7 +31,7 @@ function Welcome() {
         <AppShell pageName="Home" appName="React UI Toolkit" appVersion="0.0.0" navData={nav}>
           <Switch>
             <Route exact path="/" component={IntroAsync} />
-            <Route exact path="/editor" component={SandboxAsync} />
+            {/* <Route exact path="/editor" component={SandboxAsync} /> */}
             <Route component={NoMatchAsync} />
           </Switch>
         </AppShell>
